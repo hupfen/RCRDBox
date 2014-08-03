@@ -1,3 +1,31 @@
-<div class="col-md-12">
-This is the done view.
-</div>
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<!-- Banner -->		
+
+			<section id="banner" class="front short">
+
+				<div class="inner">
+					
+					<header>
+						<h2>RCRD<span>BOX</span></h2>
+					</header>
+					<p>Got it.</p>
+				
+				</div>
+				
+			</section>
+		
+		<!-- Main -->
+			<article id="main">
+
+				<header class="special container">
+					<h2>You're all set.</h2>
+          <p>Word from Stripe is, your subscription went through just fine. You might see a small authorization charge show up, but that'll be reversed. The real charge will happen once we've got your next box put together and sent off.</p>
+          <p>Psst. <strong>By the way.</strong> We'll give you a little discount if you help us out a little bit. Just share the link below, and if anyone signs up for RCRDBOX using it, you'll get $2.50 off your next shipment. (Once they've had a successful shipment, of course.)</p>
+          <pre ng-hide="reflink">Retrieving...</pre><pre ng-show="reflink">https://rcrdbox.com/?r={{reflink}}</pre>
+          <br>
+        <p><a class="button" ng-href="{{tweetlink}}" target="_blank">Tweet this out</a></p>
+				</header>
+					
+					
+			</article>

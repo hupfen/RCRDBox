@@ -6,7 +6,8 @@ angular.module('rcrdboxApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'LocalStorageModule'
+  'LocalStorageModule',
+  'firebase'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider

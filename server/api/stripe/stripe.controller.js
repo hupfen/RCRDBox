@@ -2,9 +2,11 @@
 
 var _ = require('lodash');
 var stripe = require('stripe')(process.env.STRIPE_SECRET);
+var Firebase = require('firebase');
+var db = new Firebase('https://songswell.firebaseIO.com/');
 
-// Get list of stripes
 exports.index = function(req, res) {
+  // use free trial until 1st of next month, so everyone's charged the same day
   var now = new Date();
   if (now.getMonth === 12) {
     var current = new Date(now.getFullYear()+1, 1, 1);
@@ -13,6 +15,7 @@ exports.index = function(req, res) {
     var current = new Date(now.getFullYear(), now.getMonth()+1, 1);
   }
   try {
+    // prep objects for storage
     var address = req.body.address;
     var addr = { name: address.name,
                  street: address.address_line1,
@@ -35,7 +38,7 @@ exports.index = function(req, res) {
         function(err, subscription) {
           var content = {name: addr.name, street: addr.street, apt: addr.apt, city: addr.city, state: addr.state, zip: addr.zip, country: addr.country, ref: (' https://rcrdbox.com/?r=' + customer.id.substr(4)), plan: planCode};
           //mandrillMail('rcrd-subscribed', content, {email: req.body.email, name: addr.name});
-          //db.child('users').child(customer.id).setWithPriority({token: customer.id, ref: ref, email: request.body.email, address: addr, plan: planCode}, req.body.email);
+          db.child('users').child(customer.id).setWithPriority({token: customer.id, ref: ref, email: req.body.email, address: addr, plan: planCode}, req.body.email);
           res.json([{code: 200, message: 'success', token: {id: customer.id.substr(4), email: req.body.email, address: addr, plan: planCode}}]);
         }
       );

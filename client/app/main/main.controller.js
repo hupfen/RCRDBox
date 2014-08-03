@@ -20,11 +20,11 @@ angular.module('rcrdboxApp')
       key: 'pk_test_4RKgTuPrp30kDmEW69wP2mzT',
       image: 'images/recroulette.png',
       token: function(token) {
-        var plan = localStorage.getItem('plan');
+        var plan = localStorageService.get('plan');
         $http.post('/api/stripeCheckout', {stripeToken : token.id, email : token.email, plan: plan, address: token.card, ref : GetQueryStringParams('r')})
             .success(function(data) {
               localStorageService.remove('plan');
-              localStorageService.add('rcrd_e',token.email);
+              localStorageService.add('rcrd_e',JSON.stringify(data));
               window.location = '/done';
             })
             .error(function(data, status, headers, config) {
