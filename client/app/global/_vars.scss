@@ -1,0 +1,155 @@
+/*------------------------------------*\
+    VARS.SCSS
+\*------------------------------------*/
+/**
+ * OBJECTS-AND-ABSTRACTIONS
+ * OVERRIDES
+ * CUSTOM
+    ^ COLORS
+    ^ FONTS
+    ^ CUSTOM FONT MIXINS
+*/
+
+/**
+ * Any variables you find set in inuit.css’ `_vars.scss` that you do not wish to
+ * keep, simply redefine here. This means that if inuit.css, for example, sets
+ * your `$base-font-size` at 16px and you wish it to be 14px, simply redeclare
+ * that variable in this file. inuit.css ignores its own variables in favour of
+ * using your own, so you can completely modify how inuit.css works without ever
+ * having to alter the framework itself.
+ */
+
+
+
+
+/*------------------------------------*\
+    $OVERRIDES
+\*------------------------------------*/
+/**
+ * Place any variables that should override inuit.css’ defaults here.
+ */
+$debug-mode:            false;
+
+$responsive:            true;
+
+$brand-color:           #83446C;
+$brand-face:            'Helvetica Neue', sans-serif;
+
+$base-font-family:      $brand-face;
+
+$base-line-height:      24px;
+
+
+/**
+ * Other overrides to inuit
+ */
+label{ cursor:default !important; }
+.form-fields input[type=text]{ cursor: text;}
+.check-list label{ cursor: pointer !important }
+
+
+$color-bg:					#f3f6fa;
+$rebeccapurple:     #663399;
+$color-fg:					#7c8081;
+
+$color-border:				transparentize($color-fg, 0.8);
+
+$color-header-bg:			#fff;
+$color-header-fg:			inherit;
+$color-header-alt-bg:		transparent;
+$color-header-alt-fg:		#fff;
+
+$color-banner-bg:			#898786;
+$color-banner-fg:			#fff;
+$color-banner-inner-bg:		#341b2b;
+$color-banner-inner-fg:		#fff;
+
+$color-footer-bg:			#E8EEF4;//#e2e5e8;
+$color-footer-fg:			#7c8081;
+
+$color-one-bg:				#83446C;
+$color-one-fg:				#fff;
+$color-two-bg:				#fff;
+$color-two-fg:				inherit;
+$color-three-bg:			#645862;
+$color-three-fg:			#fff;
+
+$color-navPanel-bg:			#1c2021;
+$color-navPanel-fg:			#fff;
+$color-navButton-bg:		rgba(163,169,170,0.75);
+$color-navButton-fg:		#fff;
+
+$color-twitter-bg:			#70aecd;
+$color-twitter-fg:			#fff;
+$color-facebook-bg:			#7490c3;
+$color-facebook-fg:			#fff;
+$color-google-plus-bg:		#db6b67;
+$color-google-plus-fg:		#fff;
+$color-github-bg:			#dcad8b;
+$color-github-fg:			#fff;
+$color-dribbble-bg:			#da83ae;
+$color-dribbble-fg:			#fff;
+$color-tumblr-bg:			#35465c;
+$color-tumblr-fg:			#fff;
+$color-insta-bg:			#3f729b;
+$color-insta-fg:			#fff;
+
+
+
+
+/*------------------------------------*\
+    $CUSTOM
+\*------------------------------------*/
+/**
+ * Place any of your own variables that sit on top of inuit.css here.
+ */
+
+/**
+ * ^COLORS 
+ */
+$color1:            $brand-color;           // red
+$color2:            #2F7DC4;                // blue
+$color2--dark:      darken($color2, 14%);   // dark blue
+$color2--light:     lighten($color2, 8%);   // light blue
+$color3:            #6CBA16;                // green
+$color4:            #FFA501;                // orange
+$color5:            #8A2CA1;                // orange
+
+$linkedin:          #00659B;
+$facebook:          #3B5895;
+$twitter:           #63CDF7;
+$google:            #FF0017;
+$pinterest:         #CE1E1F;
+$mail:              $color3;
+$tumblr:            #35465c;
+$insta:             #3f729b;
+
+$white:             #FFF;
+$gray1:             #F7F7F7;
+$gray2:             #EEE;
+$gray3:             #D8D8D8;
+$gray4:             #9A9EA1;
+$gray5:             #808284;
+$gray6:             #58585B;
+$black:             #000;
+
+
+/**
+ * ^FONTS
+ */
+$sans-serif:        $brand-face;
+$serif:             "Georgia", serif;
+
+/**
+ * ^CUSTOM FONT MIXINS 
+ */
+@mixin sans-serif-extra-light{
+    font-family: 'Gotham SSm 2r', 'Gotham SSm A', 'Gotham SSm B';
+    font-weight: 200;
+    font-style: normal;
+}
+
+@mixin serif{
+    font-family: $serif;
+    font-weight: 100;
+}

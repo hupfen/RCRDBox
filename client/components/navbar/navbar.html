@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
+<div class="navbar navbar-inverse navbar-static-top" ng-controller="NavbarCtrl">
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
@@ -7,14 +7,46 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">RCRDBox</a>
+      <a href="/" class="navbar-brand"><b>RCRD</b>Box</a>
     </div>
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
             <a ng-href="{{item.link}}">{{item.title}}</a>
         </li>
+        
+<!--        <li><button ng-click="loginModal()" class="btn btn-primary navbar-btn btn-outline">Sign In</button></li>-->
       </ul>
     </div>
   </div>
 </div>
+
+    <script type="text/ng-template" id="login.html">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Sign In to RCRDBox</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6 social">
+          <a class="btn btn-block btn-twitter btn-lg"><i class="fa fa-twitter"></i> Sign in with Twitter</a>
+          <a class="btn btn-block btn-facebook btn-lg"><i class="fa fa-facebook"></i> Sign in with Facebook</a>
+          <a class="btn btn-block btn-google btn-lg"><i class="fa fa-google-plus"></i> Sign in with Google+</a>
+          </div>
+          <div class="col-md-6">
+          <form role="form">
+            <div class="form-group">
+              <label for="emailInput" class="sr-only">Email address</label>
+              <input type="email" class="form-control" id="emailInput" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+              <label for="passwordInput" class="sr-only">Password</label>
+              <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-success pull-left">Submit</button>
+            <a href="/forgot" class="pull-right btn btn-default">Forgot your password?</a>
+          </form>
+          </div>
+        </div>
+      </div>
+    </script>

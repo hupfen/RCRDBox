@@ -1,31 +1,121 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
-  </div>
-</header>
+<!-- Banner -->		
+			<section id="banner" class="front">
+				
+				<!--
+					".inner" is set up as an inline-block so it automatically expands
+					in both directions to fit whatever's inside it. This means it won't
+					automatically wrap lines, so be sure to use line breaks where
+					appropriate (<br />).
+				-->
+				<div class="inner">
+					
+					<header>
+						<h2><b>RCRD</b>BOX</h2>
+					</header>
+					<p>Random Music.<br>Every month.<br>Go ahead. <strong>Gamble.</strong></p>
+					<footer>
+            <div class="row"><div class="col-md-12"><a ng-click="checkout('medium')" class="btn btn-primary btn-block btn-lg btn-outline">CD Subscription<br><small>(10 CDs, $25/month shipped)</small></a><a ng-click="checkout('medrec')" class="btn btn-primary btn-block btn-lg btn-outline">LP Subscription<br><small>(10 records, $25/month shipped)</small></a><a class="btn btn-primary btn-block btn-lg btn-outline">About <i class="fa fa-arrow-down"></i></a></div></div>
+					</footer>
+				
+				</div>
+				
+			</section>
+		
+		<!-- Main -->
+			<article id="main">
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-lg-12">
-              <li><a ng-click="checkout('medium')">CD Subscription<br><small>(10 CDs, $25/month shipped)</small></a></li>
-              <li><a ng-click="checkout('medrec')">LP Subscription<br><small>(10 records, $25/month shipped)</small></a></li>
-              
-							<li><a href="#main">About</a></li>
-						</ul>
+				<header class="special container">
+					<h2><b>RCRD</b>BOX sends discovery to your door.</h2>
+          <p>We remember the days of going to the record store, flipping through CDs for something cheap and interesting. Most of us don't have record stores around anymore. We've got huge streaming libraries now, but 20 million songs doesn't mean jack if you keep listening to the same ones over and over. So <strong>we're bringing discovery back</strong>, by grabbing some interesting CDs and shoving them in your face every month. Maybe you'll like them, maybe you won't, but at least they'll be something different.</p>
+				</header>
+										
+				<!-- Two -->
+					<section class="wrapper style1 container special">
+						<div class="row">
+							<div class="col-md-4">
+							
+								<section>
+									<span class="icon feature fa-tags"></span>
+									<header>
+										<h3>No curation.</h3>
+									</header>
+									<p>We pick albums that we think will be solid experiences. But we don't try to guess what you'll like, 'cause we'd be wrong sooner or later. So anything can show up, because any album could be your new favorite.</p>
+								</section>
+							
+							</div>
+							<div class="col-md-4">
+							
+								<section>
+									<span class="icon feature fa-copy"></span>
+									<header>
+										<h3>No copies.</h3>
+									</header>
+									<p>We guarantee that every CD you receive, in a 12 month span, will be unique. Hopefully, every CD in every RCRDBOX you ever receive will be unique. There's enough albums out there, it can be done.</p>
+								</section>
+							
+							</div>
+							<div class="col-md-4">
+							
+								<section>
+									<span class="icon feature fa-lock"></span>
+									<header>
+										<h3>No commitment.</h3>
+									</header>
+									<p>You're only charged when we ship your box, and you can cancel at any time. You can refer a bunch of friends (and get a discount on your box) or you can just chill. Whatever you're comfortable with.</p>
+								</section>
+							
+							</div>
+						</div>
+					</section>
+        
+        <!--				 One -->
+					<section class="wrapper style2 container special-alt">
+						<div class="row half">
+							<div class="col-xs-12">
+							
+								<header>
+									<h2><strong>FAQs</strong></h2>
+								</header>
+								<ul class="list-unstyled">
+                  <li><h3><i class="icon fa-arrow-right"></i> What's in the box?</h3>
+                  <p>10 CDs, or 10 vinyl records. For the most part, they'll be full-length, single-artist releases. Many will be used, though we look for stuff in good shape. Occasionally there may be an extra sampler from a label, maybe some stickers. Probably no references to Se7en.</p></li>
+                  <li><h3><i class="icon fa-arrow-right"></i> Where'd you get it all?</h3>
+                  <p>As much as possible, we work <a href="/labels">with labels</a> to get closeouts and overstock direct from them. There are also places on the Internet with bulk closeout sales that we take advantage of. Or, we'll just go to the record store down the street.</p></li>
+                  <li><h3><i class="icon fa-arrow-right"></i> What's the shipping cost?</h3>
+                  <p>It's part of the $25 price.</p></li>
+                  <li><h3><i class="icon fa-arrow-right"></i> When should my box arrive?</h3>
+                  <p>We ship everything the first week of the month. Stuff takes about a week to move around, so in the first half of the month you should have your box. We'll email you a tracking number when your box goes out, it'll know for sure.</p></li>
+                  <li><h3><i class="icon fa-arrow-right"></i> What if I don't like what I got?</h3>
+                  <p>Tough.</p></li>
+                  <li><h3><i class="icon fa-arrow-right"></i> ...Seriously?</h3>
+                  <p>Well, no. If you get something that refuses to work, you can send it back and we'll include an extra in your next box to make up for it. We take care when packing, so nothing should get damaged in transit, but we can't test everything so a lemon might get through. Still, we don't take returns just because you don't like what you got. Everyone's going to eventually get something they don't like, just as (hopefully) they'll eventually get something they love.</p></li>
+                  <li><h3><i class="icon fa-arrow-right"></i> Vinyl, really? And who still buys CDs? It's not the 90s any more.</h3>
+                  <p>We live in Portland. <a href="https://www.youtube.com/watch?v=AVmq9dq6Nsg">It's the 90s here.</a></p></li>
+                </ul>
+							
+							</div>			
+						</div>
+					</section>
+					
+			</article>
 
-    </div>
-  </div>
-</div>
+		<!-- CTA -->
+			<section id="cta" class="front">
+			
+				<header>
+					<h2><strong>Sound good?</strong></h2>
+					<p>Boxes ship the first week of every month. Cancel anytime.</p>
+				</header>
+				<footer>
+          <div class="row">
+            <div class="col-md-3 col-md-offset-3"><a ng-click="checkout('medium')" class="btn btn-primary btn-lg btn-block btn-outline" >CD Subscription<br><small>(10 CDs, $25/month shipped)</small></a></div>
+            <div class="col-md-3"><a ng-click="checkout('medrec')" class="btn btn-primary btn-block btn-lg btn-outline" >LP Subscription<br><small>(10 records, $25/month shipped)</small></a></div>
+          </div>
+            
+				</footer>
+			
+			</section>
 
-<footer class="footer">
-  <div class="container">
-      <p><a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
-         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
-  </div>
-</footer>
+<div ng-include="'components/footer/footer.html'"></div>

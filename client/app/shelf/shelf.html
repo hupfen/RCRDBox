@@ -1,0 +1,106 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<!-- Banner -->		
+			<section id="banner" class="front short">
+				
+				<!--
+					".inner" is set up as an inline-block so it automatically expands
+					in both directions to fit whatever's inside it. This means it won't
+					automatically wrap lines, so be sure to use line breaks where
+					appropriate (<br />).
+				-->
+				<div class="inner">
+					
+					<header>
+						<h2><b>RCRD</b>BOX</h2>
+					</header>
+					<p>Everything we've sent.<br><strong>Everything.</strong></p>
+				
+				</div>
+				
+			</section>
+		
+		<!-- Main -->
+			<article id="main">
+
+				<header class="special container">
+					<h2>The Shelves</h2>
+					<p>Here, we keep track of every album that came through RCRD, with links to where you can grab them if you just gotta have it. Albums here aren't retired, they could show up in your next box. But, since we're always trying to find new albums, it's more likely we'll just keep on adding to this list.</p>
+				</header>
+					
+				<!-- One -->
+				<section class="wrapper style2 container special-alt">
+						<div class="row half">
+							<div class="col-xs-12">
+                        <div class="pagination">
+          <ul class="list-unstyled list-inline">
+            <li>
+              <a ng-class="prevPageDisabled()" class="btn btn-default" ng-click="prevPage()"><i class="fa fa-angle-double-left"></i> Prev</a>
+            </li>
+            <li ng-repeat="n in range()">
+              <a class="btn btn-default" ng-class="{active: n == currentPage}" ng-click="setPage(n)">{{n+1}}</a>
+            </li>
+            <li>
+              <a  ng-class="nextPageDisabled()" class="btn btn-default" ng-click="nextPage()">Next <i class="fa fa-angle-double-right"></i></a>
+            </li>
+          </ul>
+        </div>
+							
+								<table class="table-striped">
+                  <thead><tr>
+                    <th class="sort" ng-click="sort='artist';reverse=!reverse">Artist</th>
+                    <th class="sort" ng-click="sort='album';reverse=!reverse">Album</th>
+                    <th class="sort" ng-click="sort='copies';reverse=!reverse">Copies</th>
+                  </tr></thead>
+    <tbody>
+<tr ng-repeat="row in albums | orderBy:sort:reverse | offset: currentPage*itemsPerPage | limitTo: itemsPerPage">
+  <td><a ng-href="https://www.last.fm/music/{{row.artist}}" target='_blank'>{{row.artist}}</a></td>
+  <td><a ng-href='https://www.amazon.com/gp/product/{{row.amazon}}/tag=recorroule-20' target='_blank'>{{row.album}}</a></td>
+  <td>{{row.copies}}</td>
+      </tr>
+    </tbody>
+               <tfoot>
+      <td colspan="3">
+        <div class="pagination">
+          <ul class="list-unstyled list-inline">
+            <li>
+              <a ng-class="prevPageDisabled()" class="btn btn-default" ng-click="prevPage()"><i class="fa fa-angle-double-left"></i> Prev</a>
+            </li>
+            <li ng-repeat="n in range()">
+              <a class="btn btn-default" ng-class="{active: n == currentPage}" ng-click="setPage(n)">{{n+1}}</a>
+            </li>
+            <li>
+              <a  ng-class="nextPageDisabled()" class="btn btn-default" ng-click="nextPage()">Next <i class="fa fa-angle-double-right"></i></a>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tfoot>     
+
+                </table>
+							
+							</div>				
+						</div>
+					</section>
+					
+					
+			</article>
+
+		<!-- CTA -->
+			<section id="cta" class="front">
+			
+				<header>
+					<h2><strong>Sound good?</strong></h2>
+					<p>Boxes ship the first week of every month. Cancel anytime.</p>
+				</header>
+				<footer>
+          <div class="row">
+            <div class="col-md-3 col-md-offset-3"><a ng-click="checkout('medium')" class="btn btn-primary btn-lg btn-block btn-outline" >CD Subscription<br><small>(10 CDs, $25/month shipped)</small></a></div>
+            <div class="col-md-3"><a ng-click="checkout('medrec')" class="btn btn-primary btn-block btn-lg btn-outline" >LP Subscription<br><small>(10 records, $25/month shipped)</small></a></div>
+          </div>
+            
+				</footer>
+			
+			</section>
+
+<div ng-include="'components/footer/footer.html'"></div>

@@ -12,3 +12,5 @@ dist
 client/.jshintrc
 
 server/.jshintrc
+
+npm-debug.log
