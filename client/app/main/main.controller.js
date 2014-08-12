@@ -17,7 +17,7 @@ angular.module('rcrdboxApp')
     };
     
     $scope.checkout = function(plan) {
-      stripe.checkout(plan);
+      stripe.checkout(plan, GetQueryStringParams('r'));
       event.preventDefault();
     };
 

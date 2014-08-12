@@ -6,6 +6,7 @@ angular.module('rcrdboxApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
+  'LocalStorageModule',
   'firebase'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -14,27 +15,29 @@ angular.module('rcrdboxApp', [
 
     $locationProvider.html5Mode(true);
   })
-  .service('stripe', function () {
+  .service('stripe', function ($http, localStorageService) {
 
+    var planCode = '', ref = '';
+    
     var handler = StripeCheckout.configure({
       key: 'pk_test_4RKgTuPrp30kDmEW69wP2mzT',
       image: 'images/recroulette.png',
       token: function(token) {
-        $http.post('/api/stripeCheckout', {stripeToken : token.id, email : token.email, plan: planCode, address: token.card, ref : GetQueryStringParams('r')})
+        $http.post('/api/stripeCheckout', {stripeToken : token.id, email : token.email, plan: planCode, address: token.card, ref : ref})
             .success(function(data) {
-              //localStorageService.remove('plan');
-              localStorageService.add('rcrd_e',JSON.stringify(data));
+              localStorageService.add('rcrd_e', data[0]);
               window.location = '/done';
             })
             .error(function(data, status, headers, config) {
-              alert(data[0]);
+              alert(data);
             });
       }
     });
 
     // Public API for configuration
-    this.checkout = function (plan) {
-      var planCode = plan;
+    this.checkout = function (plan, referr) {
+      planCode = plan;
+      ref = referr;
       //localStorageService.remove('rcrd_e');
       //localStorageService.add('plan', plan);
       // Open Checkout with further options

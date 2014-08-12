@@ -38,7 +38,7 @@ exports.index = function(req, res) {
         function(err, subscription) {
           var content = {name: addr.name, street: addr.street, apt: addr.apt, city: addr.city, state: addr.state, zip: addr.zip, country: addr.country, ref: (' https://rcrdbox.com/?r=' + customer.id.substr(4)), plan: planCode};
           //mandrillMail('rcrd-subscribed', content, {email: req.body.email, name: addr.name});
-          db.child('users').child(customer.id).setWithPriority({token: customer.id, ref: ref, email: req.body.email, address: addr, plan: planCode}, req.body.email);
+          //db.child('users').child(customer.id).setWithPriority({token: customer.id, ref: ref, email: req.body.email, address: addr, plan: planCode}, req.body.email);
           res.json([{code: 200, message: 'success', token: {id: customer.id.substr(4), email: req.body.email, address: addr, plan: planCode}}]);
         }
       );
